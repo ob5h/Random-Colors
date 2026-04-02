@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Background Color</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      transition: none; /* Remove any color transition */
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function getRandomColor() {
+      // Generate a random hex color
+      return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    }
+
+    function changeBackground() {
+      document.body.style.backgroundColor = getRandomColor();
+      requestAnimationFrame(changeBackground); // Calls itself as fast as the browser can render
+    }
+
+    changeBackground(); // Start the loop
+  </script>
+</body>
+</html>
